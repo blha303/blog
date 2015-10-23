@@ -1,0 +1,28 @@
+name: Steven Smith
+description: Excited Python developer, creator of cool things
+avatar: http://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140
+footer-links:
+  github: blha303/blog
+  twitter: blha303
+  facebook: blha303
+  youtube: user/blahblahblahblha303
+  email: stevensmith.ome@gmail.com
+url: https://blha303.github.io/blog/
+baseurl: "/blog"
+
+markdown: redcarpet
+highlighter: pygments
+permalink: /:title/
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+
+# Use the following plug-ins
+gems:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+
+# Exclude these files from your production _site
+exclude:
+    - LICENSE
+    - README.md
+    - CNAME
