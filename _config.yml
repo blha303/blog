@@ -8,8 +8,8 @@ footer-links:
   youtube: user/blahblahblahblha303
   email: stevensmith.ome@gmail.com
 disqus: blha303blog
-url: https://blha303.github.io/blog/
-baseurl: "/blog"
+url: http://blog.blha303.com.au
+baseurl: ""
 
 markdown: redcarpet
 highlighter: pygments
