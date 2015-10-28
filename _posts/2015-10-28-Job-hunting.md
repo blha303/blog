@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Job hunting
+permalink: /Job-hunting
 ---
 
 I gave my resume in to a recruitment agency two days ago. Called today to

@@ -8,12 +8,12 @@ footer-links:
   youtube: user/blahblahblahblha303
   email: stevensmith.ome@gmail.com
 disqus: blha303blog
-url: http://blog.blha303.com.au
+url: http://blog.b303.me
 baseurl: ""
 
 markdown: redcarpet
 highlighter: pygments
-permalink: /:title/
+permalink: /:year/:month/:day/:title/
 # Set the Sass partials directory, as we're using @imports
 sass:
   style: :compressed# You might prefer to minify using :compressed
