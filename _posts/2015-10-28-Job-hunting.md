@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Job hunting
-redirect_from: /Job-hunting
+redirect_from: /Job-hunting/index.html
 ---
 
 I gave my resume in to a recruitment agency two days ago. Called today to
