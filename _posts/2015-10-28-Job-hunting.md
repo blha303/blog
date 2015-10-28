@@ -24,3 +24,5 @@ way. I'd need $15k for that, minimum. Haven't researched prices for that yet.
 Sounds like a lot of money, but... Ideally I would have the presence of mind
 to put away savings, plan time off, y'know, all that adult stuff I haven't
 had to do up til this point. I guess we'll see. First step is getting a job.
+
+*Listening to: [Utada Hikaru - Simple and Clean](https://www.youtube.com/watch?v=nLHjtg7cZqY&t=42)*
