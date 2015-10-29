@@ -19,6 +19,7 @@
 
     <meta name="google-site-verification" content="en1tOZTDvyLntBtF8bflIIszRjjeqizJenIS80Kk9BM" />
 
+    <meta name="robots" content="noindex">
 
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -50,75 +51,6 @@
 
     <div id="main" role="main" class="container">
       <h1>Archive of posts from October 27, 2015</h1>
-
-<ul class="posts">
-
-  <li>
-    <span class="post-date">Oct 27, 2015</span>
-    <a class="post-link" href="/2015/10/27/Hm/">Not much going on so far</a>
-  </li>
-
-</ul>
-'EOF'
-
-cat <<'EOF' >> _layouts/archive_month.md
----
-layout: default
----
-
-<h1>Archive of posts from October 2015</h1>
-
-<ul class="posts">
-
-  <li>
-    <span class="post-date">Oct 27, 2015</span>
-    <a class="post-link" href="/2015/10/27/Hm/">Not much going on so far</a>
-  </li>
-
-</ul>
-'EOF'
-
-cat <<'EOF' >> _layouts/archive_year.md
----
-layout: default
----
-
-<h1>Archive of posts from 2015</h1>
-
-<ul class="posts">
-
-  <li>
-    <span class="post-date">Oct 27, 2015</span>
-    <a class="post-link" href="/2015/10/27/Hm/">Not much going on so far</a>
-  </li>
-
-</ul>
-'EOF'
-
-cat <<'EOF' >> _layouts/archive_tag.md
----
-layout: default
----
-
-<h1>Archive of posts with day ''</h1>
-<ul class="posts">
-  
-    <li>
-      <span class="post-date">Oct 27, 2015</span>
-      <a class="post-link" href="/2015/10/27/Hm/">Not much going on so far</a>
-    </li>
-  
-</ul>
-'EOF'
-
-jekyll build
-cp -rf _site/20* .
-cp old_config.yml _config.yml
----
-layout: default
----
-
-<h1>Archive of posts from October 27, 2015</h1>
 
 <ul class="posts">
 
