@@ -9,7 +9,7 @@ footer-links:
   email: stevensmith.ome@gmail.com
 disqus: blha303blog
 url: http://blog.b303.me
-baseurl: "/"
+baseurl: ""
 
 markdown: redcarpet
 highlighter: pygments
