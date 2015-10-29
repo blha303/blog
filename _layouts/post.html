@@ -10,6 +10,9 @@ layout: default
   </div>
 
   <div class="date">
+    {% assign year = page.date | date: "%Y" %}
+    {% assign month = page.date | date: "%m" %}
+    {% assign day = page.date | date: "%d" %}
     Written on
       <a href="/{{ year }}/{{ month }}/">{{ page.date | date: "%B" }}</a>
       <a href="/{{ year }}/{{ month }}/{{ day }}">{{ page.date | date: "%e" }}</a>,
