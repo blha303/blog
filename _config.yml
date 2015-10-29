@@ -17,13 +17,25 @@ permalink: /:year/:month/:day/:title/
 sass:
   style: :compressed
 
-gems:
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-redirect-from
-  - jekyll-mentions
-
 exclude:
     - LICENSE
     - README.md
     - CNAME
+
+gems:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: all
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+  layouts:
+    year: archive_year
+    month: archive_month
+    day: archive_day
+    tag: archive_tag
