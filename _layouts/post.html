@@ -10,7 +10,10 @@ layout: default
   </div>
 
   <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
+    Written on
+      <a href="/{{ year }}/{{ month }}/">{{ page.date | date: "%B" }}</a>
+      <a href="/{{ year }}/{{ month }}/{{ day }}">{{ page.date | date: "%e" }}</a>,
+      <a href="/{{ year }}">{{ page.date | date: "%Y" }}</a>
   </div>
 
   {% include disqus.html %}
