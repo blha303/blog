@@ -34,3 +34,9 @@ Here's some pointers so you can skip a couple steps:
 `clang: error: linker command failed with exit code 1 (use -v to see invocation)`
 
 Now I'm going to just go ahead and use terminology 1.14. Hopefully that just works.
+
+Edit: OK, I did that, and it worked. Mostly. Now I have a really miniscule Terminology window.
+
+![Ignore the __prompt_command messages, it didn't load .bash_profile because it's not an OSX terminal emulator]({{ site.baseurl }}/images/terminology1.png)
+
+I tried playing a H.264 video and got `Missing decoder` errors from gstreamer, so I guess that's broken at this point. It works to some degree, that's what I was going for.
