@@ -27,10 +27,10 @@ Here's some pointers so you can skip a couple steps:
 * The last error I encountered was a clang error for missing symbols for x86_64. I have no idea how to resolve this,
   so I'm leaving it here. The truncated error is below:
 
-      CCLD     lib/eio/libeio.la    
-    Undefined symbols for architecture x86_64:    
-    ...    
-    ld: symbol(s) not found for architecture x86_64    
-    clang: error: linker command failed with exit code 1 (use -v to see invocation)
+`  CCLD     lib/eio/libeio.la`    
+`Undefined symbols for architecture x86_64:`    
+`...`    
+`ld: symbol(s) not found for architecture x86_64`    
+`clang: error: linker command failed with exit code 1 (use -v to see invocation)`
 
 Now I'm going to just go ahead and use terminology 1.14. Hopefully that just works.
