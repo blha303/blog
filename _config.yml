@@ -21,6 +21,7 @@ exclude:
     - LICENSE
     - README.md
     - CNAME
+    - build_archive.sh
 
 gems:
   - jekyll-sitemap
