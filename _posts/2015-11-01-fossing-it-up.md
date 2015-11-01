@@ -11,3 +11,8 @@ Terminology, turns out it Just Works on Ubuntu :P
 
 Might give ratpoison a try, I enjoyed using that on Arch when I tried that
 a while back.
+
+---
+
+Addendum: While writing this post, installing Enlightenment, I managed to
+bork Terminology. Hahaha.
