@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /Users/steven/workspace/blog # to be safe
+cd ~/workspace/blog # to be safe
 rm -rf 2015
 cp _config.yml old_config.yml
 echo "  - jekyll-archives
