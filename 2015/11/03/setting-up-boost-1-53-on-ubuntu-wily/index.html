@@ -65,32 +65,36 @@
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Get boost 1.53 source</span>
 wget http://sourceforge.net/projects/boost/files/boost/1.53.0/boost_1_53_0.tar.gz/download -O boost-1.53.tgz
 tar zxvf boost-1.53.tgz <span class="o">&amp;&amp;</span> <span class="nb">cd </span>boost_1_53_0
-<span class="c"># As stated at [this page](https://coderwall.com/p/0atfug/installing-boost-1-55-from-source-on-ubuntu-12-04) (kudos to coderwall.com):</span>
+
+<span class="c"># As stated at [this page](https://coderwall.com/p/0atfug/installing-boost-1-55-from-source-on-ubuntu-12-04)(kudos to coderwall.com):</span>
 <span class="c"># Install tools for building</span>
-sudo apt-get install build-essential g++ python-dev autotools-dev <span class="se">\</span>
-                         libicu-dev build-essential libbz2-dev
+sudo apt-get install build-essential g++ python-dev <span class="se">\</span>
+                     autotools-dev libicu-dev <span class="se">\</span>
+                     build-essential libbz2-dev
 <span class="c"># Create Boost.Build engine for compiling the rest</span>
 ./bootstrap.sh --prefix<span class="o">=</span>/usr/local
 <span class="c"># Get the number of cpu cores, put this into a variable</span>
 <span class="nv">n</span><span class="o">=</span><span class="sb">`</span>cat /proc/cpuinfo | grep <span class="s2">"cpu cores"</span> | uniq | awk <span class="s1">'{print $NF}'</span><span class="sb">`</span>
-<span class="c"># Use all cpu cores to build Boost and install it to /usr/local</span>
-<span class="c"># as specified above</span>
+<span class="c"># Use all cpu cores to build Boost and install it to</span>
+<span class="c"># /usr/local as specified above</span>
 sudo ./b2 --with<span class="o">=</span>all -j <span class="nv">$n</span> install
 <span class="c"># Add /usr/local/lib to library path</span>
-sudo sh -c <span class="s1">'echo "/usr/local/lib" &gt;&gt; /etc/ld.so.conf.d/local.conf'</span>
+sudo sh -c <span class="s1">'echo "/usr/local/lib" &gt;&gt; 
+            /etc/ld.so.conf.d/local.conf'</span>
 <span class="c"># Reload libraries</span>
 sudo ldconfig
 <span class="c"># Thanks again to coderwall.com for the above lines, very helpful</span>
+
 <span class="c"># Return to working directory</span>
 <span class="nb">cd</span> ..
 <span class="c"># Get airdcnano source</span>
 wget https://github.com/airdcnano/airdcnano/releases/download/1.06/airdcnano-1.06.tar.gz
 tar zxvf airdcnano-1.06.tar.gz <span class="o">&amp;&amp;</span> <span class="nb">cd </span>airdcnano-1.06
 <span class="c"># Install dependencies, minus boost, as it's already installed</span>
-sudo apt-get install libbz2-dev libncursesw5-dev scons zlib1g-dev <span class="se">\</span>
-                         libglib2.0-dev libssl-dev libstdc++6 <span class="se">\</span>
-                         libminiupnpc-dev libnatpmp-dev libtbb-dev <span class="se">\</span>
-                         libgeoip-dev
+sudo apt-get install libbz2-dev libncursesw5-dev <span class="se">\</span>
+                     scons zlib1g-dev libglib2.0-dev libssl-dev <span class="se">\</span>
+                     libstdc++6 libminiupnpc-dev libnatpmp-dev
+                     libtbb-dev libgeoip-dev
 <span class="c"># Build source using all available cpu cores (Note from airdc:</span>
 <span class="c"># each compiler thread requires about 1 GB of free RAM and the</span>
 <span class="c"># compiler will crash if it runs out of memory.)</span>
