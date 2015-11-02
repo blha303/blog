@@ -21,17 +21,21 @@ Here's some pointers so you can skip a couple steps:
 * efl appears to reference a missing file, `src/lib/ecore_audio/ecore_audio_obj_out_core_audio.c`. It appears to be
   an optional extra? I removed all references to it in `src/Makefile_Ecore_Audio.am`
 * You then have to install automake. Oh, and it has to be automake-1.14.1. To save some time digging through the git log, try this:
-  * `wget https://github.com/Homebrew/homebrew/raw/bc1f9b2f4fe36a940f5628a9e5b02aa0f938bd6c/Library/Formula/automake.rb -O /usr/local/Library/Formula/automake.rb`
-  * `brew unlink automake`
-  * `brew install automake`
+{% highlight text %}
+wget https://github.com/Homebrew/homebrew/raw/bc1f9b2f4fe36a940f5628a9e5b02aa0f938bd6c/Library/Formula/automake.rb -O /usr/local/Library/Formula/automake.rb
+brew unlink automake
+brew install automake
+{% endhighlight %}
 * The last error I encountered was a clang error for missing symbols for x86_64. I have no idea how to resolve this,
   so I'm leaving it here. The truncated error is below:
 
-`  CCLD     lib/eio/libeio.la`    
-`Undefined symbols for architecture x86_64:`    
-`...`    
-`ld: symbol(s) not found for architecture x86_64`    
-`clang: error: linker command failed with exit code 1 (use -v to see invocation)`
+{% highlight text %}
+  CCLD     lib/eio/libeio.la
+Undefined symbols for architecture x86_64:
+...
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+{% endhighlight %}
 
 Now I'm going to just go ahead and use terminology 1.14. Hopefully that just works.
 

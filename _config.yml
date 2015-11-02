@@ -12,7 +12,7 @@ url: http://blog.b303.me
 baseurl: ""
 
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 permalink: /:year/:month/:day/:title/
 sass:
   style: :compressed

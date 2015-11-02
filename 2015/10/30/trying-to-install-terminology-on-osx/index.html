@@ -76,22 +76,23 @@ can either get older source code, or try building efl and elementary from scratc
 <code>brew unlink efl</code>/<code>brew unlink elementary</code> to clean up.</li>
 <li>efl appears to reference a missing file, <code>src/lib/ecore_audio/ecore_audio_obj_out_core_audio.c</code>. It appears to be
 an optional extra? I removed all references to it in <code>src/Makefile_Ecore_Audio.am</code></li>
-<li>You then have to install automake. Oh, and it has to be automake-1.14.1. To save some time digging through the git log, try this:
+<li>You then have to install automake. Oh, and it has to be automake-1.14.1. To save some time digging through the git log, try this:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">wget https://github.com/Homebrew/homebrew/raw/bc1f9b2f4fe36a940f5628a9e5b02aa0f938bd6c/Library/Formula/automake.rb -O /usr/local/Library/Formula/automake.rb
+brew unlink automake
+brew install automake</code></pre></figure>
 
 <ul>
-<li><code>wget https://github.com/Homebrew/homebrew/raw/bc1f9b2f4fe36a940f5628a9e5b02aa0f938bd6c/Library/Formula/automake.rb -O /usr/local/Library/Formula/automake.rb</code></li>
-<li><code>brew unlink automake</code></li>
-<li><code>brew install automake</code></li>
-</ul></li>
 <li>The last error I encountered was a clang error for missing symbols for x86_64. I have no idea how to resolve this,
 so I&#39;m leaving it here. The truncated error is below:</li>
 </ul>
 
-<p><code>CCLD     lib/eio/libeio.la</code><br>
-<code>Undefined symbols for architecture x86_64:</code><br>
-<code>...</code><br>
-<code>ld: symbol(s) not found for architecture x86_64</code><br>
-<code>clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">  CCLD     lib/eio/libeio.la
+Undefined symbols for architecture x86_64:
+...
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre></figure>
 
 <p>Now I&#39;m going to just go ahead and use terminology 1.14. Hopefully that just works.</p>
 
