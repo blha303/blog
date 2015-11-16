@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>songvid – Steven Smith – Excited Python developer, creator of cool things</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Today my good friend Jeviny asked me to make him a song video for a track on his new album so he could put it on Youtube. Nothing fancy, just a still image of the album art with the album intro in the background. So I spent 15 minutes writing a tool to do that.
+" />
+    <meta property="og:description" content="Today my good friend Jeviny asked me to make him a song video for a track on his new album so he could put it on Youtube. Nothing fancy, just a still image of the album art with the album intro in the background. So I spent 15 minutes writing a tool to do that.
+" />
+    
+    <meta name="author" content="https://plus.google.com/+StevenSmith303" />
+    <link rel="author" href="https://plus.google.com/+StevenSmith303"/>
+
+    
+    <meta property="og:title" content="songvid" />
+    <meta property="twitter:title" content="songvid" />
+    
+
+    <meta name="google-site-verification" content="en1tOZTDvyLntBtF8bflIIszRjjeqizJenIS80Kk9BM" />
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Steven Smith - Excited Python developer, creator of cool things" href="/feed.xml" />
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="http://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Steven Smith</a></h1>
+            <p class="site-description">Excited Python developer, creator of cool things</p>
+          </div>
+
+          <nav>
+            <a href="http://blha303scripts.tumblr.com/">Old blog</a>
+            <a href="/">This blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>songvid</h1>
+
+  <div class="entry">
+    <p>Today my good friend Jeviny asked me to make him a song video for a track on his new album so he could put it on Youtube. Nothing fancy, just a still image of the album art with the album intro in the background. So I spent 15 minutes writing a tool to do that.</p>
+
+<p>First I figured out how to do it with ffmpeg.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ffmpeg -loop 1 -i image.jpg -i audio.mp3 -shortest -c:v libx264 -tune stillimage -c:a libfdk_aac sv_audio.mp4</code></pre></div>
+
+<p>Then I took that, and dumped it into a <a href="https://github.com/blha303/songvid/blob/master/songvid/songvid.py#L9">Python module</a>. Pretty simple stuff.</p>
+
+  </div>
+
+  <div class="date">
+    
+    
+    
+    Written on
+      <a href="/2015/11/">November</a>
+      <a href="/2015/11/16">16</a>,
+      <a href="/2015">2015</a>
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'blha303blog';
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:stevensmith.ome@gmail.com"><i class="svg-icon email"></i></a>
+<a href="https://www.facebook.com/blha303"><i class="svg-icon facebook"></i></a>
+
+<a href="https://github.com/blha303/blog"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/blha303"><i class="svg-icon twitter"></i></a>
+
+<a href="https://youtube.com/user/blahblahblahblha303"><i class="svg-icon youtube"></i></a>
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
