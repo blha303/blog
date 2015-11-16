@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Setting up Boost 1.53 on Ubuntu 15.10 (Wily)
+redirect_from: 2015/11/03/setting-up-boost-1-53-on-ubuntu-wily/index.html
 ---
 
 Today I decided I would try to get [airdcnano](https://github.com/airdcnano/airdcnano) working on Wily.
