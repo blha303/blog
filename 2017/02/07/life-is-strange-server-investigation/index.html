@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Life Is Strange Server Investigation – Steven Smith – Excited Python developer, creator of cool things</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="
+" />
+    <meta property="og:description" content="
+" />
+    
+    <meta name="author" content="https://plus.google.com/+StevenSmith303" />
+    <link rel="author" href="https://plus.google.com/+StevenSmith303"/>
+
+    
+    <meta property="og:title" content="Life Is Strange Server Investigation" />
+    <meta property="twitter:title" content="Life Is Strange Server Investigation" />
+    
+
+    <meta name="google-site-verification" content="en1tOZTDvyLntBtF8bflIIszRjjeqizJenIS80Kk9BM" />
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Steven Smith - Excited Python developer, creator of cool things" href="/feed.xml" />
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Steven Smith</a></h1>
+            <p class="site-description">Excited Python developer, creator of cool things</p>
+          </div>
+
+          <nav>
+            <a href="http://blha303scripts.tumblr.com/">Old blog</a>
+            <a href="/">This blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Life Is Strange Server Investigation</h1>
+
+  <div class="entry">
+    <p><img src="http://i1065.photobucket.com/albums/u395/noothere/Life%20Is%20Strangetrade_20150131152817_zps4d21vm40.jpg" alt="Stats screen for first episode"></p>
+
+<p>Six months ago I decided I would try to see how the game Life Is Strange displayed choice statistics ingame. I hadn&#39;t used man-in-the-middle software before, but looking under the hood of websites to <a href="https://github.com/blha303/getlyrics">see</a> <a href="https://github.com/blha303/watchshow">how</a> <a href="https://github.com/blha303/factorio-serverlist">they</a> <a href="https://gist.github.com/blha303/a3aa964af48378768aab787daaaab8c7">work</a> and using that to build integrations with other services (usually my IRC bot) has kinda been what I&#39;ve been doing for years now. I&#39;m <a href="https://stackoverflow.com/story/blha303">unemployed</a> if you&#39;re wondering.</p>
+
+<p>I <a href="https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065">wrote up all relevant information</a> back when I did this research six months ago, but I thought I&#39;d take you through the process when I was setting this up. Initially I had no clue what I was doing, I started off trying to use packet capture software like Wireshark to see the traffic, but Wireshark is really not meant for inspecting TLS traffic and seems to be <a href="https://gist.github.com/blha303/724bcc828da9a29947c39e168a540b7a">just generally kinda shit anyway</a> so I moved on to <a href="https://mitmproxy.org/">mitmproxy</a>, a program I had heard a lot about before. After a lot of fiddling, I got it set up on my laptop and set the gateway on my desktop to send traffic through the proxy.</p>
+
+<p>I used the Linux version of Life Is Strange because 1. my desktop was Linux at the time, and 2. it had a shell script that launched the game and initialized SSL certification checking, which is far easier to override than whatever Windows uses. After changing the certificate line to point to mitmproxy&#39;s generated cert, I started the game. I <a href="https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065#on-game-start">documented the game&#39;s requests</a> from startup to going through the choices screen to closing, with my theories on what each request does. The thing I was looking for was <code>/game/CommunityFactsGetEpisode</code>, which returns a <a href="https://gist.github.com/blha303/cec90d1d2e351c33d39ddddd880cd252">list of choices</a> you can make in the given episode and the number of people that chose it.</p>
+
+<p>After I&#39;d achieved my goal I continued investigating their server and discovered a couple very interesting methods.</p>
+
+<ul>
+<li><a href="https://gist.github.com/blha303/8c5b925f95c23c08197ac3a82e1bee15"><code>/game/os_GetServiceInfo</code></a>, information about the server and a <a href="https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065#file-zgenerateddocs-md">list of every endpoint the server accepts and the authorization required to use it</a>. I used this to generate API documentation automatically and went exploring. The folk in the IRC channel for /r/reverseengineering recommended that I don&#39;t publicly describe any API endpoints that aren&#39;t accessed by the game in normal operation, but I wanted to mention one in particular... There&#39;s an API endpoint that returns the server changelog.</li>
+</ul>
+
+<p><img src="/images/lis-changelog.png" alt="changelog"></p>
+
+<p>Now, this may border on stalking, but I was curious who these Eidos employees are.</p>
+
+<ul>
+<li>First, &quot;edule&quot; who pushed dozens of commits over the course of a year. Searching for &quot;e dule eidos&quot; returns the Life Is Strange credits, where it shows that &quot;e dule&quot; is Erida Dule, the Online Service Programmer. Her LinkedIn says she worked for Eidos Montréal from Aug 2014 to Aug 2015, which fits with the timespan on the commits visible in the changelog. Judging by the names on every commit for the course of that year, she seems to have singlehandedly created the LIS stats server.</li>
+<li>Occasionally there are commits by &quot;mgregoire&quot;, who must be Maxime Grégoire, a Senior Online Service Programmer.</li>
+<li>After Aug 2015, there&#39;s one commit in November by &#39;gpetit&#39;, Gaspard Petit. I can&#39;t find much about him related to LIS, except that he&#39;s in the credits of Deus Ex: Mankind Divided as a Lead Programmer.</li>
+<li>&quot;ehayut&quot; is Elliot Hayut, an Online Programmer who pushed two changes to hide information from the API response.</li>
+<li>&quot;aterrienne&quot; is Antoine Terrienne. He pushed one change adding Feral authentication, two months before Life Is Strange was announced for OSX and Linux. Like Gaspard Petit, there&#39;s not much on him related to LIS, but he&#39;s also in the credits for Deus Ex: Mankind Divided.</li>
+</ul>
+
+<p>It was a lot of fun researching the stats server used by Eidos to track what people do in Life Is Strange, it&#39;s a lot more complex than I thought. Seems to have a lot of really interesting methods hidden behind authentication, like &quot;UpdateInfocast Messages&quot;, &quot;DeleteUserProfile&quot; and &quot;os_CreateABTest&quot;. Please leave any questions in the comments below or on <a href="https://reddit.com/domain/blog.b303.me">reddit</a>, and thanks for reading.</p>
+
+  </div>
+
+  <div class="date">
+    
+    
+    
+    Written on
+      <a href="/2017/02/">February</a>
+      <a href="/2017/02/07"> 7</a>,
+      <a href="/2017">2017</a>
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'blha303blog';
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:stevensmith.ome@gmail.com"><i class="svg-icon email"></i></a>
+<a href="https://www.facebook.com/blha303"><i class="svg-icon facebook"></i></a>
+
+<a href="https://github.com/blha303/blog"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/blha303"><i class="svg-icon twitter"></i></a>
+
+<a href="https://youtube.com/user/blahblahblahblha303"><i class="svg-icon youtube"></i></a>
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

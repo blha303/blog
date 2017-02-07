@@ -37,7 +37,7 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="/" class="site-avatar"><img src="http://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
+          <a href="/" class="site-avatar"><img src="https://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
 
           <div class="site-info">
             <h1 class="site-name"><a href="/">Steven Smith</a></h1>
@@ -62,7 +62,7 @@
 
 <p>First I figured out how to do it with ffmpeg.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ffmpeg -loop 1 -i image.jpg -i audio.mp3 -shortest -c:v libx264 -tune stillimage -c:a libfdk_aac sv_audio.mp4</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ffmpeg -loop 1 -i image.jpg -i audio.mp3 -shortest -c:v libx264 -tune stillimage -c:a libfdk_aac sv_audio.mp4</code></pre></figure>
 
 <p>Then I took that, and dumped it into a <a href="https://github.com/blha303/songvid/blob/master/songvid/songvid.py#L9">Python module</a>. Pretty simple stuff.</p>
 

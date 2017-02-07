@@ -37,7 +37,7 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="/" class="site-avatar"><img src="http://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
+          <a href="/" class="site-avatar"><img src="https://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
 
           <div class="site-info">
             <h1 class="site-name"><a href="/">Steven Smith</a></h1>
@@ -79,20 +79,20 @@ an optional extra? I removed all references to it in <code>src/Makefile_Ecore_Au
 <li>You then have to install automake. Oh, and it has to be automake-1.14.1. To save some time digging through the git log, try this:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">wget https://github.com/Homebrew/homebrew/raw/bc1f9b2f4fe36a940f5628a9e5b02aa0f938bd6c/Library/Formula/automake.rb -O /usr/local/Library/Formula/automake.rb
+<figure class="highlight"><pre><code class="language-text" data-lang="text">wget https://github.com/Homebrew/homebrew/raw/bc1f9b2f4fe36a940f5628a9e5b02aa0f938bd6c/Library/Formula/automake.rb -O /usr/local/Library/Formula/automake.rb
 brew unlink automake
-brew install automake</code></pre></div>
+brew install automake</code></pre></figure>
 
 <ul>
 <li>The last error I encountered was a clang error for missing symbols for x86_64. I have no idea how to resolve this,
 so I&#39;m leaving it here. The truncated error is below:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">CCLD     lib/eio/libeio.la
+<figure class="highlight"><pre><code class="language-text" data-lang="text">  CCLD     lib/eio/libeio.la
 Undefined symbols for architecture x86_64:
 ...
 ld: symbol(s) not found for architecture x86_64
-clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre></div>
+clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre></figure>
 
 <p>Now I&#39;m going to just go ahead and use terminology 1.14. Hopefully that just works.</p>
 

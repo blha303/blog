@@ -1,6 +1,7 @@
 #!/bin/bash
 cd ~/workspace/blog # to be safe
 rm -rf 2015
+rm -rf 2017
 cp _config.yml old_config.yml
 echo "  - jekyll-archives
 
