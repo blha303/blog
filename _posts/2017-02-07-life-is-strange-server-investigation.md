@@ -3,7 +3,7 @@ layout: post
 title: Life Is Strange Server Investigation
 ---
 
-![Stats screen for first episode](https://lookpic.com/O/i2/1736/PhtDHyjm.jpeg)
+![Stats screen for first episode]({{ site.baseurl }}/images/lis-choices.jpg)
 
 Six months ago I decided I would try to see how the game Life Is Strange displayed choice statistics ingame. I hadn't used man-in-the-middle software before, but looking under the hood of websites to [see](https://github.com/blha303/getlyrics) [how](https://github.com/blha303/watchshow) [they](https://github.com/blha303/factorio-serverlist) [work](https://gist.github.com/blha303/a3aa964af48378768aab787daaaab8c7) and using that to build integrations with other services (usually my IRC bot) has kinda been what I've been doing for years now. I'm [unemployed](https://stackoverflow.com/story/blha303) if you're wondering.
 
