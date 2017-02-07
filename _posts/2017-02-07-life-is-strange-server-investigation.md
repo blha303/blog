@@ -15,6 +15,8 @@ After I'd achieved my goal I continued investigating their server and discovered
 
 [`/game/os_GetServiceInfo`](https://gist.github.com/blha303/8c5b925f95c23c08197ac3a82e1bee15), information about the server and a [list of every endpoint the server accepts and the authorization required to use it](https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065#file-zgenerateddocs-md). I used this to generate API documentation automatically and went exploring. The folk in the IRC channel for /r/reverseengineering recommended that I don't publicly describe any API endpoints that aren't accessed by the game in normal operation, but I wanted to mention one in particular... There's an API endpoint that returns the server changelog.
 
+### Warning: the following section involves googling usernames and reading the first page of results for the people involved. This may be unethical. I apologize in advance.
+
 ![changelog]({{ site.baseurl }}/images/lis-changelog.png)
 
 Now, this may border on stalking, but I was curious who these Eidos employees are.
@@ -25,4 +27,6 @@ Now, this may border on stalking, but I was curious who these Eidos employees ar
 * "ehayut" is Elliot Hayut, an Online Programmer who pushed two changes to hide information from the API response.
 * "aterrienne" is Antoine Terrienne. He pushed one change adding Feral authentication, two months before Life Is Strange was announced for OSX and Linux. Like Gaspard Petit, there's not much on him related to LIS, but he's also in the credits for Deus Ex: Mankind Divided.
 
-It was a lot of fun researching the stats server used by Eidos to track what people do in Life Is Strange, it's a lot more complex than I thought. Seems to have a lot of really interesting methods hidden behind authentication, like "UpdateInfocast Messages", "DeleteUserProfile" and "os\_CreateABTest". Please leave any questions in the comments below or on [reddit](https://reddit.com/domain/blog.b303.me), and thanks for reading.
+I'm mentioning these people because I'm a fan of the server they created. I'm looking at requests made by other Eidos games, maybe I'll find another changelog containing some of the same names. It was a lot of fun researching the stats server used by Eidos to track what people do in Life Is Strange, it's a lot more complex than I thought. Seems to have a lot of really interesting methods hidden behind authentication, like "UpdateInfocast Messages", "DeleteUserProfile" and "os\_CreateABTest".
+
+Please leave any questions in the comments below or on [reddit](https://reddit.com/domain/blog.b303.me), and thanks for reading.
