@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SuperMicro IPMICFG – Steven Smith – Excited Python developer, creator of cool things</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="I&#39;ve had to do this a couple times now, so I thought I would write up the process of setting an IP on a SuperMicro server with an IPMI management card.
+" />
+    <meta property="og:description" content="I&#39;ve had to do this a couple times now, so I thought I would write up the process of setting an IP on a SuperMicro server with an IPMI management card.
+" />
+    
+    <meta name="author" content="https://plus.google.com/+StevenSmith303" />
+    <link rel="author" href="https://plus.google.com/+StevenSmith303"/>
+
+    
+    <meta property="og:title" content="SuperMicro IPMICFG" />
+    <meta property="twitter:title" content="SuperMicro IPMICFG" />
+    
+
+    <meta name="google-site-verification" content="en1tOZTDvyLntBtF8bflIIszRjjeqizJenIS80Kk9BM" />
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Steven Smith - Excited Python developer, creator of cool things" href="/feed.xml" />
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Steven Smith</a></h1>
+            <p class="site-description">Excited Python developer, creator of cool things</p>
+          </div>
+
+          <nav>
+            <a href="http://blha303scripts.tumblr.com/">Old blog</a>
+            <a href="/">This blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>SuperMicro IPMICFG</h1>
+
+  <div class="entry">
+    <p>I&#39;ve had to do this a couple times now, so I thought I would write up the process of setting an IP on a SuperMicro server with an IPMI management card.</p>
+
+<ol>
+<li><p>Create a FreeDOS USB with <a href="https://rufus.akeo.ie">Rufus</a>. I used Rufus because it creates a working FreeDOS installation without needing to actually install it. The option to set up FreeDOS is, as far as I know, the preselected option when you open Rufus for the first time; just ensure it&#39;s selected the correct USB drive.</p></li>
+<li><p>Get IPMICFG from <a href="ftp://ftp.supermicro.com/utility/IPMICFG/">SuperMicro&#39;s FTP server</a>.</p></li>
+<li><p>Extract the contents of the DOS folder from the zip downloaded in the previous step to the FreeDOS USB. Create a new directory for them if you wish.</p></li>
+<li><p>Boot your server from this USB. I found the rear ports to be more reliable for mass storage devices.</p></li>
+<li><p>Use <code>cd</code> to enter the directory containing the files from step 3 if applicable, then run <code>ipmicfg</code> to see options. <code>ipmicfg -m</code> to show IP, <code>ipmicfg -dhcp on</code> to enable DHCP (a full power cycle is needed to acquire a DHCP address, i.e removing and replacing the power cord), <code>ipmicfg -k</code> to set subnet mask, <code>ipmicfg -g</code> to set gateway IP, <code>ipmicfg -user setpwd 2 password</code> to reset the administrator password (check the user ID with <code>ipmicfg -user list</code>).</p></li>
+<li><p>????</p></li>
+<li><p>Server awayyyyyyyyyyyy</p></li>
+</ol>
+
+  </div>
+
+  <div class="date">
+    
+    
+    
+    Written on
+      <a href="/2017/03/">March</a>
+      <a href="/2017/03/31">31</a>,
+      <a href="/2017">2017</a>
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'blha303blog';
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:stevensmith.ome@gmail.com"><i class="svg-icon email"></i></a>
+<a href="https://www.facebook.com/blha303"><i class="svg-icon facebook"></i></a>
+
+<a href="https://github.com/blha303/blog"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/blha303"><i class="svg-icon twitter"></i></a>
+
+<a href="https://youtube.com/user/blahblahblahblha303"><i class="svg-icon youtube"></i></a>
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

@@ -58,7 +58,7 @@
   <h1>Life Is Strange Server Investigation</h1>
 
   <div class="entry">
-    <p><img src="http://i1065.photobucket.com/albums/u395/noothere/Life%20Is%20Strangetrade_20150131152817_zps4d21vm40.jpg" alt="Stats screen for first episode"></p>
+    <p><img src="/images/lis-choices.jpg" alt="Stats screen for first episode"></p>
 
 <p>Six months ago I decided I would try to see how the game Life Is Strange displayed choice statistics ingame. I hadn&#39;t used man-in-the-middle software before, but looking under the hood of websites to <a href="https://github.com/blha303/getlyrics">see</a> <a href="https://github.com/blha303/watchshow">how</a> <a href="https://github.com/blha303/factorio-serverlist">they</a> <a href="https://gist.github.com/blha303/a3aa964af48378768aab787daaaab8c7">work</a> and using that to build integrations with other services (usually my IRC bot) has kinda been what I&#39;ve been doing for years now. I&#39;m <a href="https://stackoverflow.com/story/blha303">unemployed</a> if you&#39;re wondering.</p>
 
@@ -66,11 +66,11 @@
 
 <p>I used the Linux version of Life Is Strange because 1. my desktop was Linux at the time, and 2. it had a shell script that launched the game and initialized SSL certification checking, which is far easier to override than whatever Windows uses. After changing the certificate line to point to mitmproxy&#39;s generated cert, I started the game. I <a href="https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065#on-game-start">documented the game&#39;s requests</a> from startup to going through the choices screen to closing, with my theories on what each request does. The thing I was looking for was <code>/game/CommunityFactsGetEpisode</code>, which returns a <a href="https://gist.github.com/blha303/cec90d1d2e351c33d39ddddd880cd252">list of choices</a> you can make in the given episode and the number of people that chose it.</p>
 
-<p>After I&#39;d achieved my goal I continued investigating their server and discovered a couple very interesting methods.</p>
+<p>After I&#39;d achieved my goal I continued investigating their server and discovered a very interesting method.</p>
 
-<ul>
-<li><a href="https://gist.github.com/blha303/8c5b925f95c23c08197ac3a82e1bee15"><code>/game/os_GetServiceInfo</code></a>, information about the server and a <a href="https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065#file-zgenerateddocs-md">list of every endpoint the server accepts and the authorization required to use it</a>. I used this to generate API documentation automatically and went exploring. The folk in the IRC channel for /r/reverseengineering recommended that I don&#39;t publicly describe any API endpoints that aren&#39;t accessed by the game in normal operation, but I wanted to mention one in particular... There&#39;s an API endpoint that returns the server changelog.</li>
-</ul>
+<p><a href="https://gist.github.com/blha303/8c5b925f95c23c08197ac3a82e1bee15"><code>/game/os_GetServiceInfo</code></a>, information about the server and a <a href="https://gist.github.com/blha303/101e0db0bf63ea07b1f55862947c9065#file-zgenerateddocs-md">list of every endpoint the server accepts and the authorization required to use it</a>. I used this to generate API documentation automatically and went exploring. The folk in the IRC channel for /r/reverseengineering recommended that I don&#39;t publicly describe any API endpoints that aren&#39;t accessed by the game in normal operation, but I wanted to mention one in particular... There&#39;s an API endpoint that returns the server changelog.</p>
+
+<h3>Warning: the following section involves googling usernames and reading the first page of results for the people involved. This may be unethical. I apologize in advance.</h3>
 
 <p><img src="/images/lis-changelog.png" alt="changelog"></p>
 
@@ -84,7 +84,9 @@
 <li>&quot;aterrienne&quot; is Antoine Terrienne. He pushed one change adding Feral authentication, two months before Life Is Strange was announced for OSX and Linux. Like Gaspard Petit, there&#39;s not much on him related to LIS, but he&#39;s also in the credits for Deus Ex: Mankind Divided.</li>
 </ul>
 
-<p>It was a lot of fun researching the stats server used by Eidos to track what people do in Life Is Strange, it&#39;s a lot more complex than I thought. Seems to have a lot of really interesting methods hidden behind authentication, like &quot;UpdateInfocast Messages&quot;, &quot;DeleteUserProfile&quot; and &quot;os_CreateABTest&quot;. Please leave any questions in the comments below or on <a href="https://reddit.com/domain/blog.b303.me">reddit</a>, and thanks for reading.</p>
+<p>I&#39;m mentioning these people because I&#39;m a fan of the server they created. I&#39;m looking at requests made by other Eidos games, maybe I&#39;ll find another changelog containing some of the same names. It was a lot of fun researching the stats server used by Eidos to track what people do in Life Is Strange, it&#39;s a lot more complex than I thought. Seems to have a lot of really interesting methods hidden behind authentication, like &quot;UpdateInfocast Messages&quot;, &quot;DeleteUserProfile&quot; and &quot;os_CreateABTest&quot;.</p>
+
+<p>Please leave any questions in the comments below or on <a href="https://reddit.com/domain/blog.b303.me">reddit</a>, and thanks for reading.</p>
 
   </div>
 
