@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hey there, I'm Steven Smith. Online I'm known as either blha303 or suudo. I love making random Python stuff to solve some small problem I have. You can find most of that in my Github page.
+Hey there, I'm Alyssa Smith. Online I'm known as suvonnie, suudo, or formerly blha303. I love making random Python stuff to solve some small problem I have. You can find most of that in my Github page.
 
 ### Contact me
 

@@ -1,16 +1,17 @@
-name: Steven Smith
+name: Alyssa Smith
 description: Excited Python developer, creator of cool things
 avatar: https://www.gravatar.com/avatar/4043d77a748e3f000d497e1e90502b50?s=140
 footer-links:
   github: blha303/blog
-  twitter: blha303
+  twitter: alyssile
   facebook: blha303
   youtube: user/blahblahblahblha303
-  email: stevensmith.ome@gmail.com
+  email: alyssa.dev.smith@gmail.com
 disqus: blha303blog
-baseurl: ""
+baseurl: "https://blog.suv.id.au"
 
-markdown: redcarpet
+destination: "/home/user-data/www/blog.suv.id.au"
+markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
 sass:
@@ -19,10 +20,21 @@ sass:
 exclude:
     - LICENSE
     - README.md
-    - CNAME
-    - build_archive.sh
 
 gems:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: all
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+  layouts:
+    year: archive_year
+    month: archive_month
+    day: archive_day
+    tag: archive_tag

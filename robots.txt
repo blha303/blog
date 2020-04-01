@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://blog.b303.me/sitemap.xml
+Sitemap: https://blog.suv.id.au/sitemap.xml
